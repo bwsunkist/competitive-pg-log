@@ -1,0 +1,48 @@
+#include<iostream>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<algorithm>
+#include<climits>
+using namespace std;
+
+int main() {
+  int N;
+  int cnt=0;
+  int tmp=0;
+  int f1=0;
+  int f2=0;
+
+  cin >> N;
+
+  tmp = N%10;
+  f1 = f1 + tmp;
+  tmp = N/10;
+  tmp = tmp%10;
+  f1 = f1 + tmp*10;
+
+  tmp = N/100;
+  f2 = f2 + tmp%10;
+  tmp = N/1000;
+  f2 = f2 + (tmp%10) * 10;
+
+  cout << "f1 = " << f1 << endl;
+  cout << "f2 = " << f2 << endl;
+
+  if(f2  > 0 && f2 < 13){
+    if(f1  > 0 && f1 < 13){
+      cout << "AMBIGUOUS" << endl;
+    }else{
+      cout << "MMYY" << endl;
+    }
+  }else{
+    if(f1  > 0 && f1 < 13){
+      cout << "YYMM" << endl;
+    }else{
+      cout << "NA" << endl;
+    }
+  }
+
+
+
+}

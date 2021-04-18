@@ -1,0 +1,63 @@
+#include<iostream>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<algorithm>
+#include<climits>
+using namespace std;
+
+int main() {
+  int ans=0;
+  long long  tmp=0;
+  long long  tmpx = 0;
+  long long  tmpy = 0;
+  int N=0;
+  int K=0;
+
+  cin >> N;
+
+  vector<long long> x(N);
+  vector<long long> y(N);
+  vector<pair<long long ,long long>> xy(N);
+  for(int i = 0; i < N; i++){
+    cin >> x[i] >> y[i];
+    xy[i] = make_pair(x[i], y[i]);
+  }
+
+  sort(xy.begin(), xy.end());
+
+  vector<vector<long long>> sx(N, vector<long long >(N));
+  vector<vector<long long>> sy(N, vector<long long >(N));
+  
+  for(int i = 0; i < N; i++){
+    for(int j = i+1; j < N; j++){
+      sx[i][j] = xy[j].first - xy[i].first;
+      sy[i][j] = xy[j].second - xy[i].second;
+    }
+  }
+
+  //  vector<vector<long long>>cnt(N, vector<long long >(N));
+  int cnt =0;
+  for(int j =N-1; j>=0; j--){
+    for(int i = j-1; i >=0; i--){
+      
+        for(int k = 0; k < N; k++){
+          for(int l = k+1; l < N; l++){
+            
+            if(i != k && j != l){
+              if(sx[i][j] == sx[k][l]
+                 && sy[i][j] == sy[k][l]){
+                  cnt++;
+              }
+            }
+          }
+        }
+
+        ans = max(ans, cnt);
+        cnt = 0;
+    }
+  }
+  ans++;
+  
+  cout << N - ans << endl;;
+}
