@@ -1,0 +1,313 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"get int gcd":{
+		"prefix": "gcd",
+		"body": [
+			"int gcd(int a, int b) {",
+			"   return b ? gcd(b, a%b) : a;",
+			"}"
+		],
+		"description": "最大公約数int."
+	},
+	"get ll gcd":{
+		"prefix": "gcdll",
+		"body": [
+			"long long gcd(long long a, long long b) {",
+			"   return b ? gcd(b, a%b) : a;",
+			"}"
+		],
+		"description": "最大公約数long long"
+	},
+	"get int ngcd":{
+		"prefix": "ngcd",
+		"body": [
+			"int ngcd(vector<int> a){",
+			"   int res;",
+			"   res = a[0];",
+			"   for(int i = 1; i < a.size() && res != 1; i++) {",
+			"      res = gcd(a[i], res);",
+			"   }",
+			"   return res;",
+			"}"
+		],
+		"description": "N個 最大公約数int"
+	},
+	"get ll ngcd":{
+		"prefix": "ngcdll",
+		"body": [
+			"long long ngcd(vector<long long> a){",
+			"   long long res;",
+			"   res = a[0];",
+			"   for(long long i = 1; i < a.size() && res != 1; i++) {",
+			"      res = gcd(a[i], res);",
+			"   }",
+			"   return res;",
+			"}"
+		],
+		"description": "N個 最大公約数long long"
+	},
+	"get int lcm":{
+		"prefix": "lcm",
+		"body": [
+			"int lcm(int a, int b) {",
+			"   return a / gcd(a, b) * b;",
+			"}"
+		],
+		"description": "最小公約数int"
+	},
+	"get ll lcm":{
+		"prefix": "lcmll",
+		"body": [
+			"long long lcm(long long a, long long b) {",
+			"   return a / gcd(a, b) * b;",
+			"}"
+		],
+		"description": "最小公約数long long"
+	},
+	"get int nlcm":{
+		"prefix": "nlcm",
+		"body": [
+			"int nlcm(vector<int> numbers) {",
+			"   int res;",
+			"   res = numbers[0];",
+			"   for (int i = 1; i < numbers.size(); i++) {",
+			"      res = lcm(res, numbers[i]);",
+			"   }",
+			"   return res;",
+			"}"
+		],
+		"description": "N個 最小公約数int"
+	},
+	"get ll nlcm":{
+		"prefix": "nlcmll",
+		"body": [
+			"long long nlcm(vector<long long> numbers) {",
+			"   long long res;",
+			"   res = numbers[0];",
+			"   for (long long i = 1; i < numbers.size(); i++) {",
+			"      res = lcm(res, numbers[i]);",
+			"   }",
+			"   return res;",
+			"}"
+		],
+		"description": "N個 最小公約数long long"
+	},
+	"check isPrime x":{
+		"prefix": "isPrime",
+		"body": [
+			"bool isPrime(int x){",
+			"   int i;",
+			"   if(x < 2)return 0;",
+			"   else if(x == 2) return 1;",
+			"   if(x%2 == 0) return 0;",
+			"   for(i = 3; i*i <= x; i += 2) if(x%i == 0) return 0;",
+			"   return 1;",
+			"}"
+		],
+		"description": "素数判定int(Yes = 1)"
+	},
+	"check isPrimel x":{
+		"prefix": "isPrimell",
+		"body": [
+			"bool isPrime(long long x){",
+			"   long long i;",
+			"   if(x < 2)return 0;",
+			"   else if(x == 2) return 1;",
+			"   if(x%2 == 0) return 0;",
+			"   for(i = 3; i*i <= x; i += 2) if(x%i == 0) return 0;",
+			"   return 1;",
+			"}"
+		],
+		"description": "素数判定ll(Yes = 1)"
+	},
+	"get divisor Num":{
+		"prefix": "divnum",
+		"body": [
+			"int  divnum(int x){",
+			"  int i=2;",
+			"  if(x < 2) return 1;",
+			"  else if(x == 2) return i;",
+			"  if(x%2 == 0) i+=2;",
+			"  if(x == 4) return 3;",
+			"  for(int j = 3; j*j <= x; j += 1){",
+			"    if(x%j == 0){",
+			"      if(x == j) i++;",
+			"      else{",
+			"        i+=2;",
+			"        if(x == j*j) i--;",
+			"      }",
+			"    }",
+			"  }",
+			"  return i;",
+			"}"
+		],
+		"description": "約数の数を取得"
+	},
+	"get divisor Num ll":{
+		"prefix": "divnumll",
+		"body": [
+			"long long divnum(long long x){",
+			"  long long i=2;",
+			"  if(x < 2) return 1;",
+			"  else if(x == 2) return i;",
+			"  if(x%2 == 0) i+=2;",
+			"  if(x == 4) return 3;",
+			"  for(long long j = 3; j*j <= x; j += 1){",
+			"    if(x%j == 0){",
+			"      if(x == j) i++;",
+			"      else{",
+			"        i+=2;",
+			"        if(x == j*j) i--;",
+			"      }",
+			"    }",
+			"  }",
+			"  return i;",
+			"}"
+		],
+		"description": "約数の数を取得"
+	},
+	"get digsum ":{
+		"prefix": "digsum",
+		"body": [
+			"int digsum(int n) {",
+			"  int res = 0;",
+			"  while(n > 0) {",
+			"    res += n%10;",
+			"    n /= 10;",
+			"  }",
+			"  return res;",
+			"}"
+		],
+		"description": "各桁の和を取得"
+	},
+	"get digsum long long":{
+		"prefix": "digsumll",
+		"body": [
+			"long long digsum(long long n) {",
+			"  long long res = 0;",
+			"  while(n > 0) {",
+			"    res += n%10;",
+			"    n /= 10;",
+			"  }",
+			"  return res;",
+			"}"
+		],
+		"description": "各桁の和を取得ll"
+	},
+	"get dignum int":{
+		"prefix": "dignum",
+		"body": [
+			"int digsum(int n) {",
+			"  int res = 0;",
+			"  while(n > 0) {",
+			"    res ++",
+			"    n /= 10;",
+			"  }",
+			"  return res;",
+			"}"
+		],
+		"description": "桁数取得"
+	},
+	"get dignum long long":{
+		"prefix": "dignumll",
+		"body": [
+			"long long digsum(long long n) {",
+			"  long long res = 0;",
+			"  while(n > 0) {",
+			"    res ++",
+			"    n /= 10;",
+			"  }",
+			"  return res;",
+			"}"
+		],
+		"description": "桁数取得ll"
+	},
+	"get div_enum ":{
+		"prefix": "divenum",
+		"body": [
+			"vector<int> divenum(int n){",
+			"  vector<int> ret;",
+			"  for(int i = 1 ; i*i <= n ; ++i){",
+			"    if(n%i == 0){",
+			"      ret.push_back(i);",
+			"      if(i != 1 && i*i != n)  ret.push_back(n/i);",
+			"    }",
+			"  }",
+			"  ret.push_back(n);",
+			"  return ret;",
+			"}"
+		],
+		"description": "約数列挙(int配列)"
+	},
+	"get div_enum ll":{
+		"prefix": "divenumll",
+		"body": [
+			"vector<long long> divenumll(long long n){",
+			"  vector<long long> ret;",
+			"  for(long long i = 1 ; i*i <= n ; ++i){",
+			"    if(n%i == 0){",
+			"      ret.push_back(i);",
+			"      if(i != 1 && i*i != n)  ret.push_back(n/i);",
+			"    }",
+			"  }",
+			"  ret.push_back(n);",
+			"  return ret;",
+			"}"
+		],
+		"description": "約数列挙(ll配列)"
+	},
+	"get string split":{
+		"prefix": "split",
+		"body": [
+			"std::vector<std::string> split(std::string str, string del) {",
+			"    int first = 0;",
+			"    int last = str.find_first_of(del);",
+			"    std::vector<std::string> result; ",
+			"    while (first < str.size()) {",
+			"      std::string subStr(str, first, last - first);",
+			"      result.push_back(subStr);",
+			"      first = last + 1;",
+			"      last = str.find_first_of(del, first);",
+			"      if (last == std::string::npos) {",
+			"        last = str.size();",
+			"      }",
+			"   }",
+			"   return result;",
+			"}"
+		],
+		"description": "文字列分割"
+	},
+	"for":{
+		"prefix": "for",
+		"body": [
+			"for(int i = 0; i< N; i++)"
+		],
+		"description": "for文"
+	},
+	"if":{
+		"prefix": "if",
+		"body": [
+			"if()"
+		],
+		"description": "if文"
+	},
+	"ll":{
+		"prefix": "ll",
+		"body": [
+			"long long "
+		],
+		"description": "long long"
+	},
+}
