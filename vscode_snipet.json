@@ -209,10 +209,10 @@
 	"get dignum int":{
 		"prefix": "dignum",
 		"body": [
-			"int digsum(int n) {",
+			"int dignum(int n) {",
 			"  int res = 0;",
 			"  while(n > 0) {",
-			"    res ++",
+			"    res ++;",
 			"    n /= 10;",
 			"  }",
 			"  return res;",
@@ -223,10 +223,10 @@
 	"get dignum long long":{
 		"prefix": "dignumll",
 		"body": [
-			"long long digsum(long long n) {",
+			"long long dignumll(long long n) {",
 			"  long long res = 0;",
 			"  while(n > 0) {",
-			"    res ++",
+			"    res ++;",
 			"    n /= 10;",
 			"  }",
 			"  return res;",
@@ -309,5 +309,5 @@
 			"long long "
 		],
 		"description": "long long"
-	},
+	}
 }
